@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="554.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="testi.FXMLpacketMakerController">
+   <children>
+      <Label layoutX="25.0" layoutY="23.0" text="Luo Paketti">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="58.0" text="Valitse esine:">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="335.0" layoutY="68.0" text="Valitse pakettiluokka:">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="129.0" text="TAI">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="157.0" text="Luo uusi esine:">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="packetName" layoutX="25.0" layoutY="189.0" prefHeight="26.0" prefWidth="274.0" promptText="Nimi" />
+      <TextField fx:id="packetSize" layoutX="25.0" layoutY="222.0" prefHeight="26.0" prefWidth="274.0" promptText="Koko           cm*cm*cm" />
+      <TextField fx:id="packetWeight" layoutX="25.0" layoutY="256.0" prefHeight="26.0" prefWidth="274.0" promptText="Massa         kg" />
+      <CheckBox fx:id="breakable" layoutX="25.0" layoutY="297.0" mnemonicParsing="false" text="Särkyvää" />
+      <RadioButton fx:id="firstClass" layoutX="335.0" layoutY="134.0" mnemonicParsing="false" text="1. Luokka" />
+      <RadioButton fx:id="secondClass" layoutX="335.0" layoutY="193.0" mnemonicParsing="false" text="2. Luokka" />
+      <RadioButton fx:id="thirdClass" layoutX="335.0" layoutY="253.0" mnemonicParsing="false" text="3. Luokka" />
+      <Button layoutX="489.0" layoutY="284.0" mnemonicParsing="false" onAction="#packetInfo" text="Infoa luokista" />
+      <Label layoutX="24.0" layoutY="352.0" text="Paketin lähetystiedot:">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="startCity" layoutX="24.0" layoutY="391.0" onHiding="#checkfirstautomat" prefHeight="26.0" prefWidth="293.0" promptText="Lähtökaupunki" />
+      <ComboBox fx:id="startAutomat" layoutX="24.0" layoutY="429.0" onHiding="#checklonlatstart" prefHeight="26.0" prefWidth="293.0" promptText="Automaatti" />
+      <ComboBox fx:id="endCity" layoutX="335.0" layoutY="391.0" onHiding="#checksecondautomat" prefHeight="26.0" prefWidth="257.0" promptText="Kohdekaupunki" />
+      <ComboBox fx:id="endAutomat" layoutX="335.0" layoutY="429.0" onHiding="#checklonlatend" prefHeight="26.0" prefWidth="257.0" promptText="Automaatti" />
+      <Button layoutX="441.0" layoutY="504.0" mnemonicParsing="false" onAction="#createPacket" text="Luo paketti" />
+      <ComboBox fx:id="itemsListCombo" layoutX="24.0" layoutY="84.0" onHiding="#enableDisableRadioBtns" prefHeight="26.0" prefWidth="293.0" promptText="Esineet" />
+      <Label fx:id="packetDoneLabel" layoutX="27.0" layoutY="472.0" prefHeight="69.0" prefWidth="293.0" />
+   </children>
+</AnchorPane>

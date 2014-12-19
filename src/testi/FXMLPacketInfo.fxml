@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="testi.FXMLPacketInfoController">
+   <children>
+      <Label layoutX="29.0" layoutY="22.0" prefHeight="115.0" prefWidth="511.0" text="1. luokan paketti on kaikista nopein pakettiluokka, jonka vuoksi sitä ei voi lähettää pidemmälle kuin 150 km päähän. Onhan yleisesti tiedossa, että sen pidempää matkaa ei TIMO-mies jaksa pakettia kuljettaa. 1. luokan paketti on myös nopea, koska sen turvallisuudesta ei välitetä niin paljon, jolloin kaikki särkyvät esineet tulevat menemään rikki matkan aikana. " textOverrun="CLIP" wrapText="true" />
+      <Label layoutX="29.0" layoutY="137.0" prefHeight="115.0" prefWidth="511.0" text="2. luokan paketit ovat turvakuljetuksia, jolloin ne kestävät parhaiten kaiken särkyvän tavaran kuljettamisen. Näitä paketteja on mahdollista kuljettaa jopa Lapista Helsinkiin, sillä matkan aikana käytetään useampaa kuin yhtä TIMO-miestä, jolloin turvallinen kuljetus on taattu. Paketissa on kuitenkin huomattava, että jos se on liian suuri, ei särkyvä esine voi olla heilumatta, joten paketin koon on oltava pienempi kuin muilla pakettiluokilla." textOverrun="CLIP" wrapText="true" />
+      <Label layoutX="29.0" layoutY="252.0" prefHeight="115.0" prefWidth="511.0" text="3. luokan paketti on TIMO-miehen stressinpurkupaketti. Tämä tarkoittaa sitä, että TIMO-miehellä ollessa huono päivä pakettia paiskotaan seinien kautta automaatista toiseen, joten paketin sisällön on oltava myös erityisen kestävää materiaalia. Myös esineen suuri koko ja paino ovat eduksi, jolloin TIMO-mies ei jaksa heittää pakettia seinälle kovin montaa kertaa. Koska paketit päätyvät kohteeseensa aina seinien kautta, on tämä hitain mahdollinen kuljetusmuoto paketille. " textOverrun="CLIP" wrapText="true" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.web.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="715.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="testi.FXMLDocumentController">
+    <children>
+        <Button fx:id="button" layoutX="479.0" layoutY="483.0" onAction="#refreshPackets" text="Päivitä pakettilista" />
+      <WebView fx:id="webview" layoutX="-1.0" prefHeight="426.0" prefWidth="707.0" />
+      <Label layoutX="14.0" layoutY="454.0" text="Lisää SmartPost automaatit kartalle:" />
+      <ComboBox fx:id="cityComboBox" layoutX="14.0" layoutY="483.0" prefHeight="26.0" prefWidth="214.0" promptText="Valitse lisättävä kaupunki" />
+      <Button layoutX="132.0" layoutY="517.0" mnemonicParsing="false" onAction="#addToMap" text="Lisää kartalle" />
+      <Label layoutX="253.0" layoutY="454.0" prefHeight="16.0" prefWidth="167.0" text="Pakettien luonti ja lähetys:" />
+      <Button layoutX="253.0" layoutY="483.0" mnemonicParsing="false" onAction="#newPacket" text="Luo paketti" />
+      <Button fx:id="button1" layoutX="479.0" layoutY="517.0" onAction="#sendPacket" text="Lähetä paketti" />
+      <Button fx:id="button11" layoutX="253.0" layoutY="596.0" onAction="#deleteRoutes" text="Poista reitit kartalta" />
+      <ComboBox fx:id="packetComboBox" layoutX="253.0" layoutY="549.0" onHiding="#showIndexNumber" prefHeight="26.0" prefWidth="214.0" promptText="Valitse lähetettävä paketti" />
+      <Label fx:id="warningLabel" layoutX="253.0" layoutY="641.0" prefHeight="56.0" prefWidth="321.0" textFill="RED" wrapText="true" />
+      <Label fx:id="infoLabel" layoutX="27.0" layoutY="586.0" prefHeight="109.0" prefWidth="181.0" wrapText="true" />
+      <Label layoutX="253.0" layoutY="522.0" prefHeight="17.0" prefWidth="206.0" text="Valitse paketoitu tuote ja lähetä se" />
+      <Slider fx:id="moneySlider" blockIncrement="100.0" layoutX="645.0" layoutY="484.0" onMouseClicked="#sliderChanged" onMouseDragged="#sliderChanged" orientation="VERTICAL" prefHeight="156.0" prefWidth="14.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+      <Label fx:id="moneyAmount" layoutX="631.0" layoutY="463.0" prefHeight="17.0" prefWidth="50.0" text="Label" />
+      <Button fx:id="addMoneyBtn" layoutX="606.0" layoutY="650.0" mnemonicParsing="false" onAction="#addMoney" text="Syötä rahaa" />
+      <Label fx:id="moneyLabel" layoutX="479.0" layoutY="549.0" prefHeight="26.0" prefWidth="119.0" text="Lisää rahaa" />
+      <Label fx:id="costLabel" layoutX="417.0" layoutY="588.0" prefHeight="26.0" prefWidth="181.0" />
+    </children>
+</AnchorPane>
