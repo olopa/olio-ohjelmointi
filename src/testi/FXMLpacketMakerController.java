@@ -84,7 +84,7 @@ public class FXMLpacketMakerController implements Initializable {
     @FXML
     private ComboBox<String> itemsListCombo;
     private String citychecker, addresschecker, postcodechecker;
-    private String packetinfostring;
+    private static String packetinfostring;
     private float startlat, startlon, endlat, endlon;
     @FXML
     private Label packetDoneLabel;
@@ -237,9 +237,10 @@ public class FXMLpacketMakerController implements Initializable {
 
             sendlonlat.getlonlat(startlat, startlon, endlat, endlon, packetclass);
             //sending packetdata 
-            FXMLDocumentController sendinfo = new FXMLDocumentController();
+            storage sendinfo = new storage();
             packetinfostring = "Name: " + packetname + ", Class: " + packetclass + ", from: " + chosenStartCity + ", to: " + chosenEndCity;
-            sendinfo.getPacket(packetinfostring);
+            
+            sendinfo.getPackettoStorage(packetinfostring);
             String breakabledata = String.valueOf(breakable.isSelected());
             sendinfo.getOtherDataFromPackets(breakabledata);
 

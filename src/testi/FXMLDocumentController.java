@@ -72,6 +72,8 @@ public class FXMLDocumentController implements Initializable {
     ;
     static ObservableList<Integer> packetSizeList = FXCollections.observableArrayList();
     ;
+     static ObservableList<String> packetinfodatalisttwo = FXCollections.observableArrayList();
+    ;
     public String combostringi;
      public String packetinfodata;
     static private ArrayList<String> latlontoindex = new ArrayList<>();
@@ -111,9 +113,9 @@ public class FXMLDocumentController implements Initializable {
         webview.getEngine().load(getClass().getResource("index.html").toExternalForm());
         addallcitys addallcityss = new addallcitys();
         //addallcityss.addcitys();
-        ObservableList<String> sasdaaas = addallcityss.addcitys();
-        System.out.println(sasdaaas);
-        cityComboBox.setItems(sasdaaas);
+        ObservableList<String> obstring = addallcityss.addcitys();
+        System.out.println(obstring);
+        cityComboBox.setItems(obstring);
         //load the map to the webview
      /*   InputStream inputXml = null;
 
@@ -257,8 +259,6 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     public void sendPacket(ActionEvent event) {
 
-        
-        
         //sending packet
         warningLabel.setText("");
         double receivedDataDouble = (double) (webview.getEngine().executeScript(latlontoindex.get(indexofselectedpacket)));
@@ -320,7 +320,7 @@ public class FXMLDocumentController implements Initializable {
         otherDataFromPackets.add(breakable);
         System.out.println("booleani" + otherDataFromPackets);
     }
-
+/*
     public String getPacket(String packet) {
         //packet data and saving it to list
         packetinfodata = packet;
@@ -329,13 +329,22 @@ public class FXMLDocumentController implements Initializable {
         System.out.println("listapaketeista: " + packetinfodatalist);
 
         return packet;
-    }
+    } */
 
     @FXML
     private void refreshPackets(ActionEvent event) {
         //update packetlist
         // System.out.println("saatu data: " + packetinfodatalist);
-        packetComboBox.setItems(packetinfodatalist);
+        storage getdatafromstorage = new storage();
+        
+        String breakablestringone = getdatafromstorage.breakabledatasend();
+        otherDataFromPackets.add(breakablestringone);
+        
+        String testijudunen = getdatafromstorage.packetinfodata;
+        System.out.println("Paketti: "+getdatafromstorage.sendvalues());
+       packetinfodatalisttwo = getdatafromstorage.sendvalues();
+       System.out.println("listajudu: "+packetinfodatalisttwo);
+        packetComboBox.setItems(packetinfodatalisttwo);
     }
 
     @FXML
@@ -351,7 +360,7 @@ public class FXMLDocumentController implements Initializable {
         int shaisse = latlontoindex.size();
         for (int i = 0; i < shaisse; i++) {
             System.out.println(packetComboBox.getValue() + " ja toinen on " + latlontoindex.get(i));
-            if (packetComboBox.getValue().contains(packetinfodatalist.get(i))) {
+            if (packetComboBox.getValue().contains(packetinfodatalisttwo.get(i))) {
                 //System.out.println(latlontoindex(i));
                 System.out.println("ii on: " + i);
                 indexofselectedpacket = i;
