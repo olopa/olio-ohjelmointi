@@ -72,7 +72,7 @@ public class FXMLDocumentController implements Initializable {
     ;
     static ObservableList<Integer> packetSizeList = FXCollections.observableArrayList();
     ;
-
+    public String combostringi;
      public String packetinfodata;
     static private ArrayList<String> latlontoindex = new ArrayList<>();
     static private int packetclassnumber;
@@ -82,13 +82,13 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button button;
     @FXML
-    private WebView webview;
+    public WebView webview;
     @FXML
     private Button button1;
     @FXML
     private Button button11;
     @FXML
-    private ComboBox<String> cityComboBox;
+    public ComboBox<String> cityComboBox;
     @FXML
     private ComboBox<String> packetComboBox;
     @FXML
@@ -109,9 +109,13 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         webview.getEngine().load(getClass().getResource("index.html").toExternalForm());
-
+        addallcitys addallcityss = new addallcitys();
+        //addallcityss.addcitys();
+        ObservableList<String> sasdaaas = addallcityss.addcitys();
+        System.out.println(sasdaaas);
+        cityComboBox.setItems(sasdaaas);
         //load the map to the webview
-        InputStream inputXml = null;
+     /*   InputStream inputXml = null;
 
         try {
             String s1 = "http://smartpost.ee/fi_apt.xml";
@@ -149,13 +153,17 @@ public class FXMLDocumentController implements Initializable {
 
         }
         cityComboBox.setItems(citylisttwo);
-
+*/
     }
+   
 
     @FXML
-    private void addToMap(ActionEvent event) {
+    public void addToMap(ActionEvent event) {
         //add citys to map
-        InputStream inputXml = null;
+        combostringi = cityComboBox.getValue();
+        xmlparse parsee = new xmlparse();
+        parsee.addtomap(combostringi, webview);
+       /* InputStream inputXml = null;
 
         try {
             String s1 = "http://smartpost.ee/fi_apt.xml";
@@ -217,7 +225,7 @@ public class FXMLDocumentController implements Initializable {
             e.printStackTrace();
 
         }
-
+*/
     }
 
     @FXML
@@ -366,6 +374,8 @@ public class FXMLDocumentController implements Initializable {
         moneySlider.setValue(0);
     }
 
+   
+    
 }
 
 
