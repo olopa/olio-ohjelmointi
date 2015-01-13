@@ -67,7 +67,7 @@ public class FXMLpacketMakerController implements Initializable {
     @FXML
     private RadioButton thirdClass;
     @FXML
-    private ComboBox<String> startCity;
+     ComboBox<String> startCity;
     @FXML
     private ComboBox<String> startAutomat;
     @FXML
@@ -96,7 +96,14 @@ public class FXMLpacketMakerController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         //loading city from xml
         itemsListCombo.setItems(itemList);
-        InputStream inputXml = null;
+        
+         addallcitys addallcityss = new addallcitys();
+        //addallcityss.addcitys();
+        ObservableList<String> obstring = addallcityss.addcitys();
+        System.out.println(obstring);
+        startCity.setItems(obstring);
+        endCity.setItems(obstring);
+      /*  InputStream inputXml = null;
 
         try {
             String s1 = "http://smartpost.ee/fi_apt.xml";
@@ -132,10 +139,10 @@ public class FXMLpacketMakerController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
 
-        }
+        } */
         //add them to comboboxes
-        startCity.setItems(citylisttwo);
-        endCity.setItems(citylisttwo);
+      //  startCity.setItems(citylisttwo);
+      //  endCity.setItems(citylisttwo);
 
     }
 
@@ -263,8 +270,13 @@ public class FXMLpacketMakerController implements Initializable {
     @FXML
     private void checkfirstautomat(Event event) {
         //getting citydata after city has been chosen
-        InputStream inputXml = null;
+        
         startAutomat.setItems(null);
+        addautomats addautomats = new addautomats();
+        //addautomats.getstartcity(startCity.getValue());
+        ObservableList<String> obstring = addautomats.addautomats(startCity.getValue());
+        startAutomat.setItems(obstring);
+        /*  InputStream inputXml = null;
         ObservableList<String> automatlistone = FXCollections.observableArrayList();
 
         try {
@@ -328,19 +340,24 @@ public class FXMLpacketMakerController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
 
-        }
+        } */
         //add them to combobox
-        startAutomat.setItems(automatlistone);
+       // startAutomat.setItems(automatlistone);
 
     }
 
     @FXML
     private void checksecondautomat(Event event) {
         //same as above
-        System.out.println("checkktoka");
-        InputStream inputXml = null;
+       
+       // InputStream inputXml = null;
         endAutomat.setItems(null);
-        ObservableList<String> automatlisttwo = FXCollections.observableArrayList();
+        addautomats addautomats = new addautomats();
+        
+        ObservableList<String> obstring = addautomats.addautomats(endCity.getValue());
+        endAutomat.setItems(obstring);
+        
+     /*   ObservableList<String> automatlisttwo = FXCollections.observableArrayList();
 
         try {
             String s1 = "http://smartpost.ee/fi_apt.xml";
@@ -400,8 +417,8 @@ public class FXMLpacketMakerController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
 
-        }
-        endAutomat.setItems(automatlisttwo);
+        } */
+       // endAutomat.setItems(automatlisttwo);
 
     }
 
