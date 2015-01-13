@@ -175,15 +175,7 @@ public class FXMLDocumentController implements Initializable {
                 costLabel.setText("Paketin lähetys onnistui");
                 money -= receivedDataDouble / 10;
                 moneyLabel.setText("Rahaa: " + money + "euroa.");
-                if ((latlontoindex.get(indexofselectedpacket).contains(",1)")) && otherDataFromPackets.get(indexofselectedpacket).equals("true")) {
-
-                    warningLabel.setText("Paketti särkyi!");
-
-                } else if (latlontoindex.get(indexofselectedpacket).contains(",2)")) {
-
-                } else {
-
-                }
+               
 
                 infoLabel.setText("Matkanpituus: " + webview.getEngine().executeScript(latlontoindex.get(indexofselectedpacket)) + "km");
 
