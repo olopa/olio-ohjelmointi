@@ -425,7 +425,13 @@ public class FXMLpacketMakerController implements Initializable {
     @FXML
     private void checklonlatstart(Event event) {
         //getting lan and lot lata
-        InputStream inputXml = null;
+        
+        xmlparse xmlparse = new xmlparse();
+        xmlparse.getlanlot(startAutomat.getValue());
+        startlat = xmlparse.returnlat();
+        startlon = xmlparse.returnlon();
+        System.out.println(startlat+" starttilat ja lon:"+startlon);
+     /*   InputStream inputXml = null;
 
         try {
             String s1 = "http://smartpost.ee/fi_apt.xml";
@@ -489,7 +495,7 @@ public class FXMLpacketMakerController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
 
-        }
+        } */
         //endAutomat.setItems(automatlisttwo);
 
     }
@@ -498,7 +504,13 @@ public class FXMLpacketMakerController implements Initializable {
     private void checklonlatend(Event event) {
         //getting lan and lot data
 
-        InputStream inputXml = null;
+        xmlparse xmlparse = new xmlparse();
+        xmlparse.getlanlottwo(endAutomat.getValue());
+        endlat = xmlparse.returnlattwo();
+        endlon = xmlparse.returnlontwo();
+        System.out.println(endlat+" endtilat ja lon:"+endlon);
+        
+     /*   InputStream inputXml = null;
 
         try {
             String s1 = "http://smartpost.ee/fi_apt.xml";
@@ -558,7 +570,7 @@ public class FXMLpacketMakerController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
 
-        }
+        } */
 
     }
 
