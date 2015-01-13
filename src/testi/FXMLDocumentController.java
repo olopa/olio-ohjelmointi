@@ -75,7 +75,7 @@ public class FXMLDocumentController implements Initializable {
      static ObservableList<String> packetinfodatalisttwo = FXCollections.observableArrayList();
     ;
     public String combostringi;
-     public String packetinfodata;
+    public String packetinfodata;
     static private ArrayList<String> latlontoindex = new ArrayList<>();
     static private int packetclassnumber;
     static private String alldata;
@@ -108,6 +108,7 @@ public class FXMLDocumentController implements Initializable {
     private Label moneyLabel;
     @FXML
     private Label costLabel;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         webview.getEngine().load(getClass().getResource("index.html").toExternalForm());
@@ -119,45 +120,44 @@ public class FXMLDocumentController implements Initializable {
         //load the map to the webview
      /*   InputStream inputXml = null;
 
-        try {
-            String s1 = "http://smartpost.ee/fi_apt.xml";
+         try {
+         String s1 = "http://smartpost.ee/fi_apt.xml";
 
-            inputXml = new URL(s1).openConnection().getInputStream();
-            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-            DocumentBuilder db = dbf.newDocumentBuilder();
-            Document doc = db.parse(inputXml);
-            doc.getDocumentElement().normalize();
-            System.out.println("Root element " + doc.getDocumentElement().getNodeName());
-            NodeList nodeLst = doc.getElementsByTagName("place");
-            System.out.println("Information of all places");
-            //getting the citys from xml
-            for (int s = 0; s < nodeLst.getLength(); s++) {
+         inputXml = new URL(s1).openConnection().getInputStream();
+         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+         DocumentBuilder db = dbf.newDocumentBuilder();
+         Document doc = db.parse(inputXml);
+         doc.getDocumentElement().normalize();
+         System.out.println("Root element " + doc.getDocumentElement().getNodeName());
+         NodeList nodeLst = doc.getElementsByTagName("place");
+         System.out.println("Information of all places");
+         //getting the citys from xml
+         for (int s = 0; s < nodeLst.getLength(); s++) {
 
-                Node fstNode = nodeLst.item(s);
+         Node fstNode = nodeLst.item(s);
 
-                if (fstNode.getNodeType() == Node.ELEMENT_NODE) {
+         if (fstNode.getNodeType() == Node.ELEMENT_NODE) {
 
-                    Element fstElmnt = (Element) fstNode;
-                    NodeList city = fstElmnt.getElementsByTagName("city");
-                    Element cityel = (Element) city.item(0);
-                    NodeList citynode = cityel.getChildNodes();
+         Element fstElmnt = (Element) fstNode;
+         NodeList city = fstElmnt.getElementsByTagName("city");
+         Element cityel = (Element) city.item(0);
+         NodeList citynode = cityel.getChildNodes();
 
-                    if (!((Node) citynode.item(0)).getNodeValue().equals(citycheck)) {
-                        citylisttwo.add(((Node) citynode.item(0)).getNodeValue());
+         if (!((Node) citynode.item(0)).getNodeValue().equals(citycheck)) {
+         citylisttwo.add(((Node) citynode.item(0)).getNodeValue());
 
-                    }
-                    citycheck = ((Node) citynode.item(0)).getNodeValue();
-                }
-            }
+         }
+         citycheck = ((Node) citynode.item(0)).getNodeValue();
+         }
+         }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+         } catch (Exception e) {
+         e.printStackTrace();
 
-        }
-        cityComboBox.setItems(citylisttwo);
-*/
+         }
+         cityComboBox.setItems(citylisttwo);
+         */
     }
-   
 
     @FXML
     public void addToMap(ActionEvent event) {
@@ -165,69 +165,69 @@ public class FXMLDocumentController implements Initializable {
         combostringi = cityComboBox.getValue();
         xmlparse parsee = new xmlparse();
         parsee.addtomap(combostringi, webview);
-       /* InputStream inputXml = null;
+        /* InputStream inputXml = null;
 
-        try {
-            String s1 = "http://smartpost.ee/fi_apt.xml";
+         try {
+         String s1 = "http://smartpost.ee/fi_apt.xml";
 
-            inputXml = new URL(s1).openConnection().getInputStream();
-            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-            DocumentBuilder db = dbf.newDocumentBuilder();
-            Document doc = db.parse(inputXml);
-            doc.getDocumentElement().normalize();
-            System.out.println("Root element " + doc.getDocumentElement().getNodeName());
-            NodeList nodeLst = doc.getElementsByTagName("place");
-            System.out.println("Information of all places");
+         inputXml = new URL(s1).openConnection().getInputStream();
+         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+         DocumentBuilder db = dbf.newDocumentBuilder();
+         Document doc = db.parse(inputXml);
+         doc.getDocumentElement().normalize();
+         System.out.println("Root element " + doc.getDocumentElement().getNodeName());
+         NodeList nodeLst = doc.getElementsByTagName("place");
+         System.out.println("Information of all places");
 
-            for (int s = 0; s < nodeLst.getLength(); s++) {
+         for (int s = 0; s < nodeLst.getLength(); s++) {
 
-                Node fstNode = nodeLst.item(s);
+         Node fstNode = nodeLst.item(s);
 
-                if (fstNode.getNodeType() == Node.ELEMENT_NODE) {
-                    //get the data from xml
-                    Element fstElmnt = (Element) fstNode;
-                    NodeList city = fstElmnt.getElementsByTagName("city");
-                    Element cityel = (Element) city.item(0);
-                    NodeList citynode = cityel.getChildNodes();
-                    System.out.println("kaupunki : " + ((Node) citynode.item(0)).getNodeValue());
+         if (fstNode.getNodeType() == Node.ELEMENT_NODE) {
+         //get the data from xml
+         Element fstElmnt = (Element) fstNode;
+         NodeList city = fstElmnt.getElementsByTagName("city");
+         Element cityel = (Element) city.item(0);
+         NodeList citynode = cityel.getChildNodes();
+         System.out.println("kaupunki : " + ((Node) citynode.item(0)).getNodeValue());
 
-                    NodeList address = fstElmnt.getElementsByTagName("address");
-                    Element addressele = (Element) address.item(0);
-                    NodeList addressnode = addressele.getChildNodes();
-                    System.out.println("address : " + ((Node) addressnode.item(0)).getNodeValue());
+         NodeList address = fstElmnt.getElementsByTagName("address");
+         Element addressele = (Element) address.item(0);
+         NodeList addressnode = addressele.getChildNodes();
+         System.out.println("address : " + ((Node) addressnode.item(0)).getNodeValue());
 
-                    NodeList postcode = fstElmnt.getElementsByTagName("code");
-                    Element postcodeele = (Element) postcode.item(0);
-                    NodeList postcodenode = postcodeele.getChildNodes();
-                    System.out.println("postcode : " + ((Node) postcodenode.item(0)).getNodeValue());
+         NodeList postcode = fstElmnt.getElementsByTagName("code");
+         Element postcodeele = (Element) postcode.item(0);
+         NodeList postcodenode = postcodeele.getChildNodes();
+         System.out.println("postcode : " + ((Node) postcodenode.item(0)).getNodeValue());
 
-                    NodeList availability = fstElmnt.getElementsByTagName("availability");
-                    Element availabilityele = (Element) availability.item(0);
-                    NodeList availabilitynode = availabilityele.getChildNodes();
-                    System.out.println("availability : " + ((Node) availabilitynode.item(0)).getNodeValue());
+         NodeList availability = fstElmnt.getElementsByTagName("availability");
+         Element availabilityele = (Element) availability.item(0);
+         NodeList availabilitynode = availabilityele.getChildNodes();
+         System.out.println("availability : " + ((Node) availabilitynode.item(0)).getNodeValue());
 
-                    NodeList postoffice = fstElmnt.getElementsByTagName("postoffice");
-                    Element postofficeele = (Element) postoffice.item(0);
-                    NodeList postofficenode = postofficeele.getChildNodes();
-                    System.out.println("postoffice : " + ((Node) postofficenode.item(0)).getNodeValue());
-                    //and add to map
-                    if (cityComboBox.getValue().contains(((Node) citynode.item(0)).getNodeValue())) {
-                        System.out.println("löytyy " + (((Node) citynode.item(0)).getNodeValue()));
-                        String add = ((Node) addressnode.item(0)).getNodeValue() + "," + ((Node) postcodenode.item(0)).getNodeValue() + " " + ((Node) citynode.item(0)).getNodeValue();
-                        String avail = ((Node) postofficenode.item(0)).getNodeValue() + " " + ((Node) availabilitynode.item(0)).getNodeValue();
-                        String col = "#000000";
-                        webview.getEngine().executeScript("document.goToLocation('" + add + "', '" + avail + "', 'blue')");
+         NodeList postoffice = fstElmnt.getElementsByTagName("postoffice");
+         Element postofficeele = (Element) postoffice.item(0);
+         NodeList postofficenode = postofficeele.getChildNodes();
+         System.out.println("postoffice : " + ((Node) postofficenode.item(0)).getNodeValue());
+         //and add to map
+         if (cityComboBox.getValue().contains(((Node) citynode.item(0)).getNodeValue())) {
+         System.out.println("löytyy " + (((Node) citynode.item(0)).getNodeValue()));
+         String add = ((Node) addressnode.item(0)).getNodeValue() + "," + ((Node) postcodenode.item(0)).getNodeValue() + " " + ((Node) citynode.item(0)).getNodeValue();
+         String avail = ((Node) postofficenode.item(0)).getNodeValue() + " " + ((Node) availabilitynode.item(0)).getNodeValue();
+         String col = "#000000";
+         webview.getEngine().executeScript("document.goToLocation('" + add + "', '" + avail + "', 'blue')");
 
-                    }
+         }
 
-                }
-            }
+         }
+         }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+         } catch (Exception e) {
+         e.printStackTrace();
 
-        }
-*/
+         }
+         */
     }
 
     @FXML
@@ -262,40 +262,38 @@ public class FXMLDocumentController implements Initializable {
         //sending packet
         warningLabel.setText("");
         double receivedDataDouble = (double) (webview.getEngine().executeScript(latlontoindex.get(indexofselectedpacket)));
-        if (money < (receivedDataDouble/10)){
+        if (money < (receivedDataDouble / 10)) {
             warningLabel.setText("Rahasi eivät riitä.\nLisää rahaa koneeseen");
             webview.getEngine().executeScript("document.deletePaths()");
-        }
-        else {
-            
-            
-        if ((latlontoindex.get(indexofselectedpacket).contains(",1)")) && receivedDataDouble > 150) {
-            System.out.println("Pakettia ei voitu lähettää. Syy: matka yli 150km");
-            webview.getEngine().executeScript("document.deletePaths()");
-            warningLabel.setText("Pakettia ei voitu lähettää.\n Syy: 1. Luokat paketteja ei voi lähettää\n yli 150km päähän");
-
         } else {
-            costLabel.setText("Paketin lähetys onnistui");
-            money -= receivedDataDouble/10;
-            moneyLabel.setText("Rahaa: "+money+"euroa.");
-            if ((latlontoindex.get(indexofselectedpacket).contains(",1)")) && otherDataFromPackets.get(indexofselectedpacket).equals("true")) {
 
-                warningLabel.setText("Paketti särkyi!");
-
-            } else if (latlontoindex.get(indexofselectedpacket).contains(",2)")) {
+            if ((latlontoindex.get(indexofselectedpacket).contains(",1)")) && receivedDataDouble > 150) {
+                System.out.println("Pakettia ei voitu lähettää. Syy: matka yli 150km");
+                webview.getEngine().executeScript("document.deletePaths()");
+                warningLabel.setText("Pakettia ei voitu lähettää.\n Syy: 1. Luokat paketteja ei voi lähettää\n yli 150km päähän");
 
             } else {
+                costLabel.setText("Paketin lähetys onnistui");
+                money -= receivedDataDouble / 10;
+                moneyLabel.setText("Rahaa: " + money + "euroa.");
+                if ((latlontoindex.get(indexofselectedpacket).contains(",1)")) && otherDataFromPackets.get(indexofselectedpacket).equals("true")) {
 
+                    warningLabel.setText("Paketti särkyi!");
+
+                } else if (latlontoindex.get(indexofselectedpacket).contains(",2)")) {
+
+                } else {
+
+                }
+
+                infoLabel.setText("Matkanpituus: " + webview.getEngine().executeScript(latlontoindex.get(indexofselectedpacket)) + "km");
+
+                System.out.println("Paketti lähti");
+                System.out.println(webview.getEngine().executeScript(latlontoindex.get(indexofselectedpacket)));
+                webview.getEngine().executeScript(latlontoindex.get(indexofselectedpacket));
+                System.out.println("alldata: " + latlontoindex.get(indexofselectedpacket));
+                //check if its breakable
             }
-
-            infoLabel.setText("Matkanpituus: " + webview.getEngine().executeScript(latlontoindex.get(indexofselectedpacket)) + "km");
-
-            System.out.println("Paketti lähti");
-            System.out.println(webview.getEngine().executeScript(latlontoindex.get(indexofselectedpacket)));
-            webview.getEngine().executeScript(latlontoindex.get(indexofselectedpacket));
-            System.out.println("alldata: " + latlontoindex.get(indexofselectedpacket));
-            //check if its breakable
-        }
         }
     }
 
@@ -320,40 +318,40 @@ public class FXMLDocumentController implements Initializable {
         otherDataFromPackets.add(breakable);
         System.out.println("booleani" + otherDataFromPackets);
     }
-/*
-    public String getPacket(String packet) {
-        //packet data and saving it to list
-        packetinfodata = packet;
-        System.out.println("asdpaketti tallennettu" + packetinfodata);
-        packetinfodatalist.add(packetinfodata);
-        System.out.println("listapaketeista: " + packetinfodatalist);
+    /*
+     public String getPacket(String packet) {
+     //packet data and saving it to list
+     packetinfodata = packet;
+     System.out.println("asdpaketti tallennettu" + packetinfodata);
+     packetinfodatalist.add(packetinfodata);
+     System.out.println("listapaketeista: " + packetinfodatalist);
 
-        return packet;
-    } */
+     return packet;
+     } */
 
     @FXML
     private void refreshPackets(ActionEvent event) {
         //update packetlist
         // System.out.println("saatu data: " + packetinfodatalist);
         storage getdatafromstorage = new storage();
-        
+
         String breakablestringone = getdatafromstorage.breakabledatasend();
         otherDataFromPackets.add(breakablestringone);
-        
+
         String testijudunen = getdatafromstorage.packetinfodata;
-        System.out.println("Paketti: "+getdatafromstorage.sendvalues());
-       packetinfodatalisttwo = getdatafromstorage.sendvalues();
-       System.out.println("listajudu: "+packetinfodatalisttwo);
+        System.out.println("Paketti: " + getdatafromstorage.sendvalues());
+        packetinfodatalisttwo = getdatafromstorage.sendvalues();
+        System.out.println("listajudu: " + packetinfodatalisttwo);
         packetComboBox.setItems(packetinfodatalisttwo);
     }
 
     @FXML
     private void showIndexNumber(Event event) {
-        
-        double receivedDataDouble = (double) (webview.getEngine().executeScript(latlontoindex.get(indexofselectedpacket)))/10;
+
+        double receivedDataDouble = (double) (webview.getEngine().executeScript(latlontoindex.get(indexofselectedpacket))) / 10;
         DecimalFormat df = new DecimalFormat("#.##");
-        
-        costLabel.setText("Lähetys maksaa: "+df.format(receivedDataDouble)+"euroa" );
+
+        costLabel.setText("Lähetys maksaa: " + df.format(receivedDataDouble) + "euroa");
         webview.getEngine().executeScript("document.deletePaths()");
         //checking the right index for sending the packet
         System.out.println(packetComboBox.getValue());
@@ -379,12 +377,8 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void addMoney(ActionEvent event) {
         money += moneySlider.getValue();
-        moneyLabel.setText("Rahaa: "+money+"euroa.");
+        moneyLabel.setText("Rahaa: " + money + "euroa.");
         moneySlider.setValue(0);
     }
 
-   
-    
 }
-
-

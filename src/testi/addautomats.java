@@ -21,13 +21,12 @@ import org.w3c.dom.NodeList;
  * @author oLLi
  */
 public class addautomats {
-  
-    
+
     ObservableList<String> automatlistone = FXCollections.observableArrayList();
-    public  ObservableList<String> addautomats (String getstartcity){
+
+    public ObservableList<String> addautomats(String getstartcity) {
         FXMLpacketMakerController FXMLpacketMakerController = new FXMLpacketMakerController();
-        
-          
+
         InputStream inputXml = null;
         try {
             String s1 = "http://smartpost.ee/fi_apt.xml";
@@ -80,8 +79,8 @@ public class addautomats {
                         String col = "#000000";
                         automatlistone.add(add + " " + avail);
                      //   postcodechecker = ((Node) postcodenode.item(0)).getNodeValue();
-                     //   addresschecker = ((Node) addressnode.item(0)).getNodeValue();
-                     //   citychecker = ((Node) citynode.item(0)).getNodeValue();
+                        //   addresschecker = ((Node) addressnode.item(0)).getNodeValue();
+                        //   citychecker = ((Node) citynode.item(0)).getNodeValue();
                     }
 
                 }
@@ -93,5 +92,5 @@ public class addautomats {
         }
         return automatlistone;
     }
-    
+
 }

@@ -21,12 +21,11 @@ import org.w3c.dom.NodeList;
  * @author oLLi
  */
 public class xmlparse {
-   
-    
-    public void addtomap(String x, WebView y){
-    InputStream inputXml = null;
-    FXMLDocumentController FXMLDocumentController = new FXMLDocumentController();
-    WebView webiviewi=FXMLDocumentController.webview;
+
+    public void addtomap(String x, WebView y) {
+        InputStream inputXml = null;
+        FXMLDocumentController FXMLDocumentController = new FXMLDocumentController();
+        WebView webiviewi = FXMLDocumentController.webview;
         try {
             String s1 = "http://smartpost.ee/fi_apt.xml";
 
@@ -89,10 +88,11 @@ public class xmlparse {
         }
 
     }
-    
-     private float startlat, startlon, endlat, endlon;
-    public void getlanlot(String postcodeaddress){
-        
+
+    private float startlat, startlon, endlat, endlon;
+
+    public void getlanlot(String postcodeaddress) {
+
         InputStream inputXml = null;
 
         try {
@@ -158,12 +158,12 @@ public class xmlparse {
             e.printStackTrace();
 
         }
-        
+
     }
-    
-    public void getlanlottwo(String postcodeaddresstwo){
-        
-          InputStream inputXml = null;
+
+    public void getlanlottwo(String postcodeaddresstwo) {
+
+        InputStream inputXml = null;
 
         try {
             String s1 = "http://smartpost.ee/fi_apt.xml";
@@ -224,21 +224,23 @@ public class xmlparse {
             e.printStackTrace();
 
         }
-        
+
     }
-    
-    public Float returnlat(){
+
+    public Float returnlat() {
         return startlat;
     }
-    public Float returnlon(){
+
+    public Float returnlon() {
         return startlon;
     }
-    
-     public Float returnlattwo(){
+
+    public Float returnlattwo() {
         return endlat;
     }
-    public Float returnlontwo(){
+
+    public Float returnlontwo() {
         return endlon;
     }
-    
+
 }

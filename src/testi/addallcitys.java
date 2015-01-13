@@ -22,13 +22,15 @@ import static testi.FXMLDocumentController.citylisttwo;
  * @author oLLi
  */
 public class addallcitys {
-     String citycheck;
-      public ObservableList<String> citylisttwo = FXCollections.observableArrayList();
+
+    String citycheck;
+    public ObservableList<String> citylisttwo = FXCollections.observableArrayList();
+
     ;
-    public ObservableList<String> addcitys (){
+    public ObservableList<String> addcitys() {
         FXMLDocumentController FXMLDocumentController = new FXMLDocumentController();
-        
-         //load the map to the webview
+
+        //load the map to the webview
         InputStream inputXml = null;
 
         try {
@@ -66,9 +68,9 @@ public class addallcitys {
             e.printStackTrace();
 
         }
-        
-       // FXMLDocumentController.cityComboBox.setItems(citylisttwo);
+
+        // FXMLDocumentController.cityComboBox.setItems(citylisttwo);
         return citylisttwo;
     }
-    
+
 }
