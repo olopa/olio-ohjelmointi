@@ -103,46 +103,7 @@ public class FXMLpacketMakerController implements Initializable {
         System.out.println(obstring);
         startCity.setItems(obstring);
         endCity.setItems(obstring);
-        /*  InputStream inputXml = null;
-
-         try {
-         String s1 = "http://smartpost.ee/fi_apt.xml";
-
-         inputXml = new URL(s1).openConnection().getInputStream();
-         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-         DocumentBuilder db = dbf.newDocumentBuilder();
-         Document doc = db.parse(inputXml);
-         doc.getDocumentElement().normalize();
-         System.out.println("Root element " + doc.getDocumentElement().getNodeName());
-         NodeList nodeLst = doc.getElementsByTagName("place");
-         System.out.println("Information of all places");
-         //getting the citys from xml
-         for (int s = 0; s < nodeLst.getLength(); s++) {
-
-         Node fstNode = nodeLst.item(s);
-
-         if (fstNode.getNodeType() == Node.ELEMENT_NODE) {
-
-         Element fstElmnt = (Element) fstNode;
-         NodeList city = fstElmnt.getElementsByTagName("city");
-         Element cityel = (Element) city.item(0);
-         NodeList citynode = cityel.getChildNodes();
-
-         if (!((Node) citynode.item(0)).getNodeValue().equals(citycheck)) {
-         citylisttwo.add(((Node) citynode.item(0)).getNodeValue());
-
-         }
-         citycheck = ((Node) citynode.item(0)).getNodeValue();
-         }
-         }
-
-         } catch (Exception e) {
-         e.printStackTrace();
-
-         } */
-        //add them to comboboxes
-        //  startCity.setItems(citylisttwo);
-        //  endCity.setItems(citylisttwo);
+  
 
     }
 
@@ -276,74 +237,7 @@ public class FXMLpacketMakerController implements Initializable {
         //addautomats.getstartcity(startCity.getValue());
         ObservableList<String> obstring = addautomats.addautomats(startCity.getValue());
         startAutomat.setItems(obstring);
-        /*  InputStream inputXml = null;
-         ObservableList<String> automatlistone = FXCollections.observableArrayList();
-
-         try {
-         String s1 = "http://smartpost.ee/fi_apt.xml";
-
-         inputXml = new URL(s1).openConnection().getInputStream();
-         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-         DocumentBuilder db = dbf.newDocumentBuilder();
-         Document doc = db.parse(inputXml);
-         doc.getDocumentElement().normalize();
-         System.out.println("Root element " + doc.getDocumentElement().getNodeName());
-         NodeList nodeLst = doc.getElementsByTagName("place");
-         System.out.println("Information of all places");
-
-         for (int s = 0; s < nodeLst.getLength(); s++) {
-
-         Node fstNode = nodeLst.item(s);
-
-         if (fstNode.getNodeType() == Node.ELEMENT_NODE) {
-
-         Element fstElmnt = (Element) fstNode;
-         NodeList city = fstElmnt.getElementsByTagName("city");
-         Element cityel = (Element) city.item(0);
-         NodeList citynode = cityel.getChildNodes();
-         System.out.println("kaupunki : " + ((Node) citynode.item(0)).getNodeValue());
-
-         NodeList address = fstElmnt.getElementsByTagName("address");
-         Element addressele = (Element) address.item(0);
-         NodeList addressnode = addressele.getChildNodes();
-         System.out.println("address : " + ((Node) addressnode.item(0)).getNodeValue());
-
-         NodeList postcode = fstElmnt.getElementsByTagName("code");
-         Element postcodeele = (Element) postcode.item(0);
-         NodeList postcodenode = postcodeele.getChildNodes();
-         System.out.println("postcode : " + ((Node) postcodenode.item(0)).getNodeValue());
-
-         NodeList availability = fstElmnt.getElementsByTagName("availability");
-         Element availabilityele = (Element) availability.item(0);
-         NodeList availabilitynode = availabilityele.getChildNodes();
-         System.out.println("availability : " + ((Node) availabilitynode.item(0)).getNodeValue());
-
-         NodeList postoffice = fstElmnt.getElementsByTagName("postoffice");
-         Element postofficeele = (Element) postoffice.item(0);
-         NodeList postofficenode = postofficeele.getChildNodes();
-         System.out.println("postoffice : " + ((Node) postofficenode.item(0)).getNodeValue());
-
-         if (startCity.getValue().contains(((Node) citynode.item(0)).getNodeValue())) {
-         System.out.println("löytyy " + (((Node) citynode.item(0)).getNodeValue()));
-         String add = ((Node) addressnode.item(0)).getNodeValue() + ", " + ((Node) postcodenode.item(0)).getNodeValue() + " " + ((Node) citynode.item(0)).getNodeValue();
-         String avail = ((Node) postofficenode.item(0)).getNodeValue() + " " + ((Node) availabilitynode.item(0)).getNodeValue();
-         String col = "#000000";
-         automatlistone.add(add + " " + avail);
-         postcodechecker = ((Node) postcodenode.item(0)).getNodeValue();
-         addresschecker = ((Node) addressnode.item(0)).getNodeValue();
-         citychecker = ((Node) citynode.item(0)).getNodeValue();
-         }
-
-         }
-         }
-
-         } catch (Exception e) {
-         e.printStackTrace();
-
-         } */
-        //add them to combobox
-        // startAutomat.setItems(automatlistone);
-
+     
     }
 
     @FXML
@@ -357,68 +251,7 @@ public class FXMLpacketMakerController implements Initializable {
         ObservableList<String> obstring = addautomats.addautomats(endCity.getValue());
         endAutomat.setItems(obstring);
 
-        /*   ObservableList<String> automatlisttwo = FXCollections.observableArrayList();
-
-         try {
-         String s1 = "http://smartpost.ee/fi_apt.xml";
-
-         inputXml = new URL(s1).openConnection().getInputStream();
-         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-         DocumentBuilder db = dbf.newDocumentBuilder();
-         Document doc = db.parse(inputXml);
-         doc.getDocumentElement().normalize();
-         System.out.println("Root element " + doc.getDocumentElement().getNodeName());
-         NodeList nodeLst = doc.getElementsByTagName("place");
-         System.out.println("Information of all places");
-
-         for (int s = 0; s < nodeLst.getLength(); s++) {
-
-         Node fstNode = nodeLst.item(s);
-
-         if (fstNode.getNodeType() == Node.ELEMENT_NODE) {
-
-         Element fstElmnt = (Element) fstNode;
-         NodeList city = fstElmnt.getElementsByTagName("city");
-         Element cityel = (Element) city.item(0);
-         NodeList citynode = cityel.getChildNodes();
-         System.out.println("kaupunki : " + ((Node) citynode.item(0)).getNodeValue());
-
-         NodeList address = fstElmnt.getElementsByTagName("address");
-         Element addressele = (Element) address.item(0);
-         NodeList addressnode = addressele.getChildNodes();
-         System.out.println("address : " + ((Node) addressnode.item(0)).getNodeValue());
-
-         NodeList postcode = fstElmnt.getElementsByTagName("code");
-         Element postcodeele = (Element) postcode.item(0);
-         NodeList postcodenode = postcodeele.getChildNodes();
-         System.out.println("postcode : " + ((Node) postcodenode.item(0)).getNodeValue());
-
-         NodeList availability = fstElmnt.getElementsByTagName("availability");
-         Element availabilityele = (Element) availability.item(0);
-         NodeList availabilitynode = availabilityele.getChildNodes();
-         System.out.println("availability : " + ((Node) availabilitynode.item(0)).getNodeValue());
-
-         NodeList postoffice = fstElmnt.getElementsByTagName("postoffice");
-         Element postofficeele = (Element) postoffice.item(0);
-         NodeList postofficenode = postofficeele.getChildNodes();
-         System.out.println("postoffice : " + ((Node) postofficenode.item(0)).getNodeValue());
-
-         if (endCity.getValue().contains(((Node) citynode.item(0)).getNodeValue())) {
-         System.out.println("löytyy " + (((Node) citynode.item(0)).getNodeValue()));
-         String add = ((Node) addressnode.item(0)).getNodeValue() + ", " + ((Node) postcodenode.item(0)).getNodeValue() + " " + ((Node) citynode.item(0)).getNodeValue();
-         String avail = ((Node) postofficenode.item(0)).getNodeValue() + " " + ((Node) availabilitynode.item(0)).getNodeValue();
-         String col = "#000000";
-         automatlisttwo.add(add + " " + avail);
-         }
-
-         }
-         }
-
-         } catch (Exception e) {
-         e.printStackTrace();
-
-         } */
-       // endAutomat.setItems(automatlisttwo);
+    
     }
 
     @FXML
@@ -430,72 +263,7 @@ public class FXMLpacketMakerController implements Initializable {
         startlat = xmlparse.returnlat();
         startlon = xmlparse.returnlon();
         System.out.println(startlat + " starttilat ja lon:" + startlon);
-        /*   InputStream inputXml = null;
-
-         try {
-         String s1 = "http://smartpost.ee/fi_apt.xml";
-
-         inputXml = new URL(s1).openConnection().getInputStream();
-         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-         DocumentBuilder db = dbf.newDocumentBuilder();
-         Document doc = db.parse(inputXml);
-         doc.getDocumentElement().normalize();
-         System.out.println("Root element " + doc.getDocumentElement().getNodeName());
-         NodeList nodeLst = doc.getElementsByTagName("place");
-         System.out.println("Information of all places");
-
-         for (int s = 0; s < nodeLst.getLength(); s++) {
-
-         Node fstNode = nodeLst.item(s);
-
-         if (fstNode.getNodeType() == Node.ELEMENT_NODE) {
-
-         Element fstElmnt = (Element) fstNode;
-         NodeList city = fstElmnt.getElementsByTagName("city");
-         Element cityel = (Element) city.item(0);
-         NodeList citynode = cityel.getChildNodes();
-         // System.out.println("kaupunki : "  + ((Node) citynode.item(0)).getNodeValue());
-
-         NodeList address = fstElmnt.getElementsByTagName("address");
-         Element addressele = (Element) address.item(0);
-         NodeList addressnode = addressele.getChildNodes();
-         // System.out.println("address : "  + ((Node) addressnode.item(0)).getNodeValue());
-
-         NodeList postcode = fstElmnt.getElementsByTagName("code");
-         Element postcodeele = (Element) postcode.item(0);
-         NodeList postcodenode = postcodeele.getChildNodes();
-         // System.out.println("postcode : "  + ((Node) postcodenode.item(0)).getNodeValue());
-
-         NodeList lat = fstElmnt.getElementsByTagName("lat");
-         Element latele = (Element) lat.item(0);
-         NodeList latnode = latele.getChildNodes();
-         // System.out.println("latitude : "  + ((Node) latnode.item(0)).getNodeValue());
-
-         NodeList lng = fstElmnt.getElementsByTagName("lng");
-         Element lngele = (Element) lng.item(0);
-         NodeList lngnode = lngele.getChildNodes();
-         // System.out.println("longtitude : "  + ((Node) lngnode.item(0)).getNodeValue());
-
-         String getpostcode = startAutomat.getValue();
-         if (getpostcode.contains(((Node) addressnode.item(0)).getNodeValue() + ", " + ((Node) postcodenode.item(0)).getNodeValue())) {
-         System.out.println("lat: " + ((Node) latnode.item(0)).getNodeValue() + " lon " + ((Node) lngnode.item(0)).getNodeValue());
-
-         startlat = Float.parseFloat(((Node) latnode.item(0)).getNodeValue());
-         startlon = Float.parseFloat(((Node) lngnode.item(0)).getNodeValue());
-         System.out.println("floatit " + startlat + " " + startlon);
-         System.out.println(Float.valueOf(((Node) latnode.item(0)).getNodeValue()));
-
-         // public float startlat, startlon, endlat, endlon;
-         }
-
-         }
-         }
-
-         } catch (Exception e) {
-         e.printStackTrace();
-
-         } */
-        //endAutomat.setItems(automatlisttwo);
+     
 
     }
 
@@ -509,67 +277,7 @@ public class FXMLpacketMakerController implements Initializable {
         endlon = xmlparse.returnlontwo();
         System.out.println(endlat + " endtilat ja lon:" + endlon);
 
-        /*   InputStream inputXml = null;
-
-         try {
-         String s1 = "http://smartpost.ee/fi_apt.xml";
-
-         inputXml = new URL(s1).openConnection().getInputStream();
-         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-         DocumentBuilder db = dbf.newDocumentBuilder();
-         Document doc = db.parse(inputXml);
-         doc.getDocumentElement().normalize();
-         System.out.println("Root element " + doc.getDocumentElement().getNodeName());
-         NodeList nodeLst = doc.getElementsByTagName("place");
-         System.out.println("Information of all places");
-
-         for (int s = 0; s < nodeLst.getLength(); s++) {
-
-         Node fstNode = nodeLst.item(s);
-
-         if (fstNode.getNodeType() == Node.ELEMENT_NODE) {
-
-         Element fstElmnt = (Element) fstNode;
-         NodeList city = fstElmnt.getElementsByTagName("city");
-         Element cityel = (Element) city.item(0);
-         NodeList citynode = cityel.getChildNodes();
-         // System.out.println("kaupunki : "  + ((Node) citynode.item(0)).getNodeValue());
-
-         NodeList address = fstElmnt.getElementsByTagName("address");
-         Element addressele = (Element) address.item(0);
-         NodeList addressnode = addressele.getChildNodes();
-         // System.out.println("address : "  + ((Node) addressnode.item(0)).getNodeValue());
-
-         NodeList postcode = fstElmnt.getElementsByTagName("code");
-         Element postcodeele = (Element) postcode.item(0);
-         NodeList postcodenode = postcodeele.getChildNodes();
-         // System.out.println("postcode : "  + ((Node) postcodenode.item(0)).getNodeValue());
-
-         NodeList lat = fstElmnt.getElementsByTagName("lat");
-         Element latele = (Element) lat.item(0);
-         NodeList latnode = latele.getChildNodes();
-         // System.out.println("latitude : "  + ((Node) latnode.item(0)).getNodeValue());
-
-         NodeList lng = fstElmnt.getElementsByTagName("lng");
-         Element lngele = (Element) lng.item(0);
-         NodeList lngnode = lngele.getChildNodes();
-         // System.out.println("longtitude : "  + ((Node) lngnode.item(0)).getNodeValue());
-
-         String getpostcode = endAutomat.getValue();
-         if (getpostcode.contains(((Node) addressnode.item(0)).getNodeValue() + ", " + ((Node) postcodenode.item(0)).getNodeValue())) {
-         System.out.println("lat: " + ((Node) latnode.item(0)).getNodeValue() + " lon " + ((Node) lngnode.item(0)).getNodeValue());
-         endlat = Float.parseFloat(((Node) latnode.item(0)).getNodeValue());
-         endlon = Float.parseFloat(((Node) lngnode.item(0)).getNodeValue());
-
-         }
-
-         }
-         }
-
-         } catch (Exception e) {
-         e.printStackTrace();
-
-         } */
+     
     }
 
     @FXML
